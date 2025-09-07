@@ -1,0 +1,23 @@
+-- data/schema.sql
+CREATE TABLE IF NOT EXISTS users (
+  user_id TEXT PRIMARY KEY,
+  display_name TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS mood_logs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id TEXT NOT NULL,
+  date TEXT NOT NULL,
+  mood INTEGER NOT NULL CHECK (mood BETWEEN 1 AND 5),
+  note TEXT,
+  UNIQUE(user_id, date)
+);
+
+CREATE TABLE IF NOT EXISTS chat_logs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id TEXT NOT NULL,
+  ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  role TEXT NOT NULL CHECK (role IN ('user','assistant','system')),
+  content TEXT NOT NULL
+);

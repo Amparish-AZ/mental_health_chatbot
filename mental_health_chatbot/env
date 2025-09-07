@@ -1,0 +1,6 @@
+# Mental Health Chatbot - Environment Variables
+# Fill in your real API key below (no quotes). Leave blank to use offline/local replies.
+
+OPENAI_API_KEY=sk-YOUR-OPENAI-KEY-HERE
+OPENAI_MODEL=gpt-4o-mini
+COUNTRY_CODE=IN
